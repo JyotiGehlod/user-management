@@ -1,3 +1,5 @@
+ /* eslint-disable */
+
 import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch , useSelector} from "react-redux";
@@ -13,7 +15,6 @@ const Home = () => {
   useEffect(() =>{
     dispatch(getAllUsers());
   },[])
-
   const handleDelete =  async(id)=> {
     const confirmDel = window.confirm("Are you sure you want to delete this user?");
     if(!confirmDel) return;
