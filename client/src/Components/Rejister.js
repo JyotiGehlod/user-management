@@ -13,26 +13,26 @@ const Register = () => {
     city: "",
   });
 
-const [file, setFile] = useState([]);
+  const [file, setFile] = useState([]);
 
-const formdata = new FormData();
+  const formdata = new FormData();
 
-formdata.append("name", input.name)
-formdata.append("email", input.email)
-formdata.append("gender", input.gender)
-formdata.append("city", input.city)
-formdata.append("profile", file)
+  formdata.append("name", input.name)
+  formdata.append("email", input.email)
+  formdata.append("gender", input.gender)
+  formdata.append("city", input.city)
+  formdata.append("profile", file)
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  await axios.post('http://localhost:9000/api/v1/users',formdata);
-  dispatch(getAllUsers());
-  navigate('/')
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await axios.post('http://localhost:9000/api/v1/users', formdata);
+    dispatch(getAllUsers());
+    navigate('/')
+  };
 
 
 
- return (
+  return (
     <div className="container flex items-center justify-content-center">
       <h2
         className="text-center text-white p-2 m-2"
@@ -52,9 +52,9 @@ const handleSubmit = async (e) => {
             value={input.name}
             name="name"
             onChange={(e) =>
-               setInput({ ...input, [e.target.name] : e.target.value })}
+              setInput({ ...input, [e.target.name]: e.target.value })}
           />
-        
+
         </div>
         <div className="form-group m-3">
           <label htmlFor="email">Email</label>
@@ -65,8 +65,8 @@ const handleSubmit = async (e) => {
             placeholder="Enter Email"
             value={input.email}
             name="email"
-            onChange={(e) => 
-              setInput({ ...input, [e.target.name] : e.target.value})
+            onChange={(e) =>
+              setInput({ ...input, [e.target.name]: e.target.value })
             }
 
           />
@@ -80,8 +80,8 @@ const handleSubmit = async (e) => {
               id="gender"
               value="Male"
               name="gender"
-              onChange={(e) => 
-                setInput({ ...input, [e.target.name] : e.target.value })
+              onChange={(e) =>
+                setInput({ ...input, [e.target.name]: e.target.value })
               }
 
             />
@@ -96,8 +96,8 @@ const handleSubmit = async (e) => {
               id="female"
               value="Female"
               name="gender"
-              onChange={(e) => 
-                setInput({ ...input, [e.target.name] : e.target.value })
+              onChange={(e) =>
+                setInput({ ...input, [e.target.name]: e.target.value })
               }
 
             />
@@ -109,8 +109,8 @@ const handleSubmit = async (e) => {
           <select
             className="form-select m-2"
             name="city"
-            onChange={(e) => 
-              setInput({ ...input, [e.target.name] : e.target.value })
+            onChange={(e) =>
+              setInput({ ...input, [e.target.name]: e.target.value })
             }
 
           >
@@ -138,7 +138,7 @@ const handleSubmit = async (e) => {
           Submit
         </button>
         <Link to="/" >
-        <button className="btn btn-danger m-3">Cancel</button>
+          <button className="btn btn-danger m-3">Cancel</button>
         </Link>
       </form>
     </div>

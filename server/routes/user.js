@@ -19,7 +19,7 @@ const upload = multer({ storage: storage });
 router.get('/users', controller.getAllUsers);
 router.get('/users/:id', controller.getUserById);
 router.post('/users', upload.single('profile'), controller.createNewsUser);
-router.put('/edituser/:id',upload.single('profile'), controller.editUser);
+router.put('/edituser/:id', upload.single('profile'), controller.editUser);
 router.delete('/deleteuser/:id', controller.deleteUser);
 
 export default router;
